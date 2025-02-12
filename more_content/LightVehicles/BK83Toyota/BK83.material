@@ -1,0 +1,425 @@
+material BK83
+{
+    technique
+    {
+        pass
+        {
+            scene_blend alpha_blend
+
+            vertex_program_ref NiceMetal_VS
+            {
+            }
+            fragment_program_ref SimpleMetal_PS
+            {
+            }
+           texture_unit diffusetex
+            {
+                texture Yota-TEX.png 2d
+                tex_coord_set 0
+            }
+		cull_hardware none
+	      cull_software none 
+            texture_unit speculartex
+            {
+                texture Shiny.png 2d
+                tex_coord_set 1
+            }
+        }
+        pass
+        {
+            scene_blend add
+            
+            vertex_program_ref NiceMetal_Reflect_VS
+            {
+            }
+             fragment_program_ref NiceMetal_Reflect_nocolor_PS
+              {
+              }
+              texture_unit reflectivetex
+              {
+                  texture Yota-TEX_S.png 2d
+                  tex_coord_set 0
+              }
+              texture_unit envmaptex
+              {
+                  cubic_texture EnvironmentTexture combinedUVW
+                  tex_address_mode clamp
+                  tex_coord_set 1
+              }
+          }
+    }
+}
+
+material BK83_Chassis
+{
+    technique
+    {
+        pass
+        {
+            scene_blend alpha_blend
+
+            vertex_program_ref NiceMetal_VS
+            {
+            }
+            fragment_program_ref SimpleMetal_PS
+            {
+            }
+           texture_unit diffusetex
+            {
+                texture BK83_Chassis.png 2d
+                tex_coord_set 0
+            }
+		cull_hardware none
+	      cull_software none 
+            texture_unit speculartex
+            {
+                texture Shiny.png 2d
+                tex_coord_set 1
+            }
+        }
+        pass
+        {
+            scene_blend add
+            
+            vertex_program_ref NiceMetal_Reflect_VS
+            {
+            }
+             fragment_program_ref NiceMetal_Reflect_nocolor_PS
+              {
+              }
+              texture_unit reflectivetex
+              {
+                  texture BK83_Chassis_S.png 2d
+                  tex_coord_set 0
+              }
+              texture_unit envmaptex
+              {
+                  cubic_texture EnvironmentTexture combinedUVW
+                  tex_address_mode clamp
+                  tex_coord_set 1
+              }
+          }
+    }
+}
+
+material BK84
+{
+    technique
+    {
+        pass
+        {
+            scene_blend alpha_blend
+
+            vertex_program_ref NiceMetal_VS
+            {
+            }
+            fragment_program_ref SimpleMetal_PS
+            {
+            }
+           texture_unit diffusetex
+            {
+                texture Yota84-Tex.png 2d
+                tex_coord_set 0
+            }
+		cull_hardware none
+	      cull_software none 
+            texture_unit speculartex
+            {
+                texture Shiny.png 2d
+                tex_coord_set 1
+            }
+        }
+        pass
+        {
+            scene_blend add
+            
+            vertex_program_ref NiceMetal_Reflect_VS
+            {
+            }
+             fragment_program_ref NiceMetal_Reflect_nocolor_PS
+              {
+              }
+              texture_unit reflectivetex
+              {
+                  texture Yota84-Tex_S.png 2d
+                  tex_coord_set 0
+              }
+              texture_unit envmaptex
+              {
+                  cubic_texture EnvironmentTexture combinedUVW
+                  tex_address_mode clamp
+                  tex_coord_set 1
+              }
+          }
+    }
+}
+material BK83_Snow
+{
+    technique
+    {
+        pass
+        {
+            scene_blend alpha_blend
+
+            vertex_program_ref NiceMetal_VS
+            {
+            }
+            fragment_program_ref SimpleMetal_PS
+            {
+            }
+           texture_unit diffusetex
+            {
+                texture YotaSnow-Tex.png 2d
+                tex_coord_set 0
+            }
+		cull_hardware none
+	      cull_software none 
+            texture_unit speculartex
+            {
+                texture Shiny.png 2d
+                tex_coord_set 1
+            }
+        }
+        pass
+        {
+            scene_blend add
+            
+            vertex_program_ref NiceMetal_Reflect_VS
+            {
+            }
+             fragment_program_ref NiceMetal_Reflect_nocolor_PS
+              {
+              }
+              texture_unit reflectivetex
+              {
+                  texture YotaSnow-Tex_S.png 2d
+                  tex_coord_set 0
+              }
+              texture_unit envmaptex
+              {
+                  cubic_texture EnvironmentTexture combinedUVW
+                  tex_address_mode clamp
+                  tex_coord_set 1
+              }
+          }
+    }
+}
+material BK84_Snow
+{
+    technique
+    {
+        pass
+        {
+            scene_blend alpha_blend
+
+            vertex_program_ref NiceMetal_VS
+            {
+            }
+            fragment_program_ref SimpleMetal_PS
+            {
+            }
+           texture_unit diffusetex
+            {
+                texture YotaSnow84-Tex.png 2d
+                tex_coord_set 0
+            }
+		cull_hardware none
+	      cull_software none 
+            texture_unit speculartex
+            {
+                texture Shiny.png 2d
+                tex_coord_set 1
+            }
+        }
+        pass
+        {
+            scene_blend add
+            
+            vertex_program_ref NiceMetal_Reflect_VS
+            {
+            }
+             fragment_program_ref NiceMetal_Reflect_nocolor_PS
+              {
+              }
+              texture_unit reflectivetex
+              {
+                  texture YotaSnow84-Tex_S.png 2d
+                  tex_coord_set 0
+              }
+              texture_unit envmaptex
+              {
+                  cubic_texture EnvironmentTexture combinedUVW
+                  tex_address_mode clamp
+                  tex_coord_set 1
+              }
+          }
+    }
+}
+material BK-Chains
+{
+    technique
+    {
+        pass
+        {
+            scene_blend alpha_blend
+
+            vertex_program_ref NiceMetal_VS
+            {
+            }
+            fragment_program_ref SimpleMetal_PS
+            {
+            }
+           texture_unit diffusetex
+            {
+                texture BK-Chains.png 2d
+                tex_coord_set 0
+            }
+		cull_hardware none
+	      cull_software none 
+            texture_unit speculartex
+            {
+                texture Shiny.png 2d
+                tex_coord_set 1
+            }
+        }
+        pass
+        {
+            scene_blend add
+            
+            vertex_program_ref NiceMetal_Reflect_VS
+            {
+            }
+             fragment_program_ref NiceMetal_Reflect_nocolor_PS
+              {
+              }
+              texture_unit reflectivetex
+              {
+                  xxx.png 2d
+                  tex_coord_set 0
+              }
+              texture_unit envmaptex
+              {
+                  cubic_texture EnvironmentTexture combinedUVW
+                  tex_address_mode clamp
+                  tex_coord_set 1
+              }
+          }
+    }
+}
+material BK_Flatbed
+{
+    technique
+    {
+        pass
+        {
+            scene_blend alpha_blend
+
+            vertex_program_ref NiceMetal_VS
+            {
+            }
+            fragment_program_ref SimpleMetal_PS
+            {
+            }
+           texture_unit diffusetex
+            {
+                texture BK_Flatbed.png 2d
+                tex_coord_set 0
+            }
+		cull_hardware none
+	      cull_software none 
+            texture_unit speculartex
+            {
+                texture Shiny.png 2d
+                tex_coord_set 1
+            }
+        }
+        pass
+        {
+            scene_blend add
+            
+            vertex_program_ref NiceMetal_Reflect_VS
+            {
+            }
+             fragment_program_ref NiceMetal_Reflect_nocolor_PS
+              {
+              }
+              texture_unit reflectivetex
+              {
+                  BK_Flatbed_S.png 2d
+                  tex_coord_set 0
+              }
+              texture_unit envmaptex
+              {
+                  cubic_texture EnvironmentTexture combinedUVW
+                  tex_address_mode clamp
+                  tex_coord_set 1
+              }
+          }
+    }
+}
+material 4R_R_Turn
+{
+technique
+{
+pass
+{
+cull_hardware none
+emissive 1 1 1 0.3
+texture_unit
+{
+anim_texture 4R_R_Turn.png 2 0
+}
+}
+}
+}
+material BK84_CChassis
+{
+    technique
+    {
+        pass
+        {
+            scene_blend alpha_blend
+
+            vertex_program_ref NiceMetal_VS
+            {
+            }
+            fragment_program_ref SimpleMetal_PS
+            {
+            }
+           texture_unit diffusetex
+            {
+                texture BK84CrawlerChassis.png 2d
+                tex_coord_set 0
+            }
+		cull_hardware none
+	      cull_software none 
+            texture_unit speculartex
+            {
+                texture Shiny.png 2d
+                tex_coord_set 1
+            }
+        }
+        pass
+        {
+            scene_blend add
+            
+            vertex_program_ref NiceMetal_Reflect_VS
+            {
+            }
+             fragment_program_ref NiceMetal_Reflect_nocolor_PS
+              {
+              }
+              texture_unit reflectivetex
+              {
+                  texture BK84CrawlerChassis_S.png 2d
+                  tex_coord_set 0
+              }
+              texture_unit envmaptex
+              {
+                  cubic_texture EnvironmentTexture combinedUVW
+                  tex_address_mode clamp
+                  tex_coord_set 1
+              }
+          }
+    }
+}

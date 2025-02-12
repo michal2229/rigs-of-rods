@@ -1,0 +1,59 @@
+
+Dirty skin for the 1984 Toyota Pickup
+{
+	// this is a comment line, it is ignored when parsing. It always starts with //
+	// replaceTexture = <original_texture.png> <skin_texture.png>
+
+	replaceTexture   = Yota84-Tex.png, Yota84-Tex-Dirt.png
+	replaceTexture   = BK83_Chassis.png, BK83_Chassis-dirt.png
+	replaceTexture   = BK83Rollbar.png, BK83Rollbar-Dirt.png
+	replaceTexture   = BK84_RBumper.png, BK84_RBumper-Dirt.png
+	replaceTexture   = BK-Rocker.png, BK-Rocker-Dirt.png
+	replaceTexture   = BK-SawBlades.png, BK-SawBlades-Dirt.png
+	replaceTexture   = BK-SawBlades_S.png, BK-SawBlades_S-Dirt.png
+	replaceTexture   = BFG_Ats.png, BFG_Ats-Dirt.png
+	replaceTexture   = Pitbull rockers.png, Pitbull rockers-Dirt.png
+	replaceTexture   = Jake-BFG.png, BFG_Ats-Dirt.png
+
+	// replaceMaterial = <originalMaterialName> <skinMaterialName>
+	// preview = <preview_image.png>
+	preview          = 
+	// description = text that will show in the selectionWindow
+	description      = Dirty skin for the 1984 Toyota Pickup
+	// AuthorName = <author name, no special characters>
+	authorName       = Brkillpack
+	// AuthorID = <forum ID of the author>
+	AuthorID         = 67910
+	// GUID = <of the truck to which this skin fits>
+	GUID             = BK84Toyota
+
+}
+
+Default skin for the 1984 Toyota Pickup
+{
+	// this is a comment line, it is ignored when parsing. It always starts with //
+	// replaceTexture = <original_texture.png> <skin_texture.png>
+
+	replaceTexture   = Yota84-Tex.png, Yota84-Tex.png
+	replaceTexture   = BK83_Chassis.png, BK83_Chassis.png
+	replaceTexture   = BK83Rollbar.png, BK83Rollbar.png
+	replaceTexture   = BK84_RBumper.png, BK84_RBumper.png
+	replaceTexture   = BK-Rocker.png, BK-Rocker.png
+	replaceTexture   = BK-SawBlades.png, BK-SawBlades.png
+	replaceTexture   = BK-SawBlades_S.png, BK-SawBlades_S.png
+	replaceTexture   = BFG_Ats.png, BFG_Ats.png
+	replaceTexture   = Pitbull rockers.png, Pitbull rockers.png
+
+	// replaceMaterial = <originalMaterialName> <skinMaterialName>
+	// preview = <preview_image.png>
+	preview          = 
+	// description = text that will show in the selectionWindow
+	description      = Default skin for the 1984 Toyota Pickup
+	// AuthorName = <author name, no special characters>
+	authorName       = Brkillpack
+	// AuthorID = <forum ID of the author>
+	AuthorID         = 67910
+	// GUID = <of the truck to which this skin fits>
+	GUID             = BK84Toyota
+
+}
