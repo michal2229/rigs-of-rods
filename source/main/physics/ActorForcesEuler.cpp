@@ -63,10 +63,10 @@ void Actor::CalcForcesEulerCompute(bool doUpdate, int num_steps)
     this->CalcBeams(doUpdate);
     this->CalcCabCollisions();
     this->updateSlideNodeForces(PHYSICS_DT); // must be done after the contacters are updated
-    this->CalcForceFeedback(doUpdate);
+    this->CalcForceFeedback(doUpdate, num_steps);
 }
 
-void Actor::CalcForceFeedback(bool doUpdate)
+void Actor::CalcForceFeedback(bool doUpdate, int num_steps)
 {
     if (this == App::GetGameContext()->GetPlayerActor().GetRef())
     {
@@ -74,10 +74,12 @@ void Actor::CalcForceFeedback(bool doUpdate)
         {
             m_force_sensors.Reset();
         }
+        Ogre::Vector3 body_f = Ogre::Vector3::ZERO;
+        float hydros_f = 0.0f;
 
         if (ar_current_cinecam != -1)
         {
-            m_force_sensors.accu_body_forces += ar_nodes[ar_camera_node_pos[ar_current_cinecam]].Forces;
+            body_f = ar_nodes[ar_camera_node_pos[ar_current_cinecam]].Forces;
         }
 
         for (hydrobeam_t& hydrobeam: ar_hydros)
@@ -85,9 +87,12 @@ void Actor::CalcForceFeedback(bool doUpdate)
             beam_t* beam = &ar_beams[hydrobeam.hb_beam_index];
             if ((hydrobeam.hb_flags & (HYDRO_FLAG_DIR | HYDRO_FLAG_SPEED)) && !beam->bm_broken)
             {
-                m_force_sensors.accu_hydros_forces += hydrobeam.hb_speed * beam->refL * beam->stress;
+                hydros_f += hydrobeam.hb_speed * beam->refL * beam->stress;
             }
         }
+        m_force_sensors.AddSamples(body_f, hydros_f);
+        m_force_sensors.SetNumSteps(num_steps);
+        m_force_sensors.SetNumHydros(ar_hydros.size());
     }
 }
 

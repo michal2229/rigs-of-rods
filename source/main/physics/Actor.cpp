@@ -1752,6 +1752,7 @@ void Actor::applyNodeBeamScales()
     }
 }
 
+/*
 void Actor::ForceFeedbackStep(int steps)
 {
     m_force_sensors.out_body_forces = m_force_sensors.accu_body_forces / steps;
@@ -1760,6 +1761,7 @@ void Actor::ForceFeedbackStep(int steps)
         m_force_sensors.out_hydros_forces = (m_force_sensors.accu_hydros_forces / steps) / ar_hydros.size();    
     }
 }
+*/
 
 void Actor::HandleAngelScriptEvents(float dt)
 {

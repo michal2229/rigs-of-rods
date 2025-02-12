@@ -246,7 +246,7 @@ public:
     std::vector<std::string>  getDescription();
     //! @}
 
-    void              ForceFeedbackStep(int steps);
+//    void              ForceFeedbackStep(int steps);
     void              HandleInputEvents(float dt);
     void              HandleAngelScriptEvents(float dt);
     void              UpdateCruiseControl(float dt);       //!< Defined in 'gameplay/CruiseControl.cpp'
@@ -271,11 +271,11 @@ public:
     PerVehicleCameraContext* GetCameraContext()    { return &m_camera_context; }
     Ogre::Vector3     GetCameraDir()                    { return (ar_nodes[ar_main_camera_node_pos].RelPosition - ar_nodes[ar_main_camera_node_dir].RelPosition).normalisedCopy(); }
     Ogre::Vector3     GetCameraRoll()                   { return (ar_nodes[ar_main_camera_node_pos].RelPosition - ar_nodes[ar_main_camera_node_roll].RelPosition).normalisedCopy(); }
-    Ogre::Vector3     GetFFbBodyForces() const          { return m_force_sensors.out_body_forces; }
+    Ogre::Vector3     GetFFbBodyForces() const          { return m_force_sensors.GetMeanBodyForces(); }
     GfxActor*         GetGfxActor()                     { return m_gfx_actor.get(); }
     void              RequestUpdateHudFeatures()        { m_hud_features_ok = false; }
     Ogre::Real        getMinimalCameraRadius();
-    float             GetFFbHydroForces() const         { return m_force_sensors.out_hydros_forces; }
+    float             GetFFbHydroForces() const         { return m_force_sensors.GetMeanHydrosForces(); }
     bool              isBeingReset() const              { return m_ongoing_reset; };
     void              UpdatePropAnimInputEvents();
 
@@ -505,7 +505,7 @@ private:
     void              CalcCommands(bool doUpdate);         
     void              CalcCabCollisions();                 
     void              CalcDifferentials();                 
-    void              CalcForceFeedback(bool doUpdate);    
+    void              CalcForceFeedback(bool doUpdate, int num_steps);    
     void              CalcFuseDrag();                      
     void              CalcHooks();                         
     void              CalcHydros();                        
@@ -648,14 +648,55 @@ private:
         {
             accu_body_forces    = Ogre::Vector3::ZERO;
             accu_hydros_forces  = 0;
-            out_body_forces     = Ogre::Vector3::ZERO;
-            out_hydros_forces   = 0;
-        };
+            //out_body_forces     = Ogre::Vector3::ZERO;
+            //out_hydros_forces   = 0;
+            num_steps           = 1;
+            num_hydros          = 1;
+        }
 
+        inline void AddSamples(const Ogre::Vector3& body_forces, float hydros_forces)
+        {
+            accu_body_forces += body_forces;
+            accu_hydros_forces += hydros_forces;
+        }
+
+        inline void SetNumSteps(uint32_t nsteps)
+        {
+            if (nsteps > 0) num_steps = nsteps;
+        }
+
+        inline void SetNumHydros(uint32_t nhydros)
+        {
+            if (nhydros > 0) num_hydros = nhydros;
+        }
+
+        inline Ogre::Vector3 GetAccuBodyForces() const
+        {
+            return accu_body_forces;
+        }
+
+        inline float GetAccuHydrosForces() const
+        {
+            return accu_hydros_forces;
+        }
+
+        inline Ogre::Vector3 GetMeanBodyForces() const
+        {
+            return accu_body_forces / num_steps;
+        }
+
+        inline float GetMeanHydrosForces() const
+        {
+            return accu_hydros_forces / num_steps / num_hydros;
+        }
+
+    private:
         Ogre::Vector3 accu_body_forces;
         float         accu_hydros_forces;
-        Ogre::Vector3 out_body_forces;
-        float         out_hydros_forces;
+        //Ogre::Vector3 out_body_forces;
+        //float         out_hydros_forces;
+        uint16_t      num_steps;
+        uint16_t      num_hydros;
     } m_force_sensors; //!< Data for ForceFeedback devices
 
     struct NetUpdate
