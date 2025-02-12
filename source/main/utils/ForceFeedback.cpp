@@ -80,7 +80,7 @@ void ForceFeedback::SetForces(float roll, float pitch, float wspeed, float dirco
     {
         float stress_gain = App::io_ffb_stress_gain->getFloat();
         float centering_gain = App::io_ffb_center_gain->getFloat();
-        float ff = -stress * stress_gain + dircommand * 100.0 * centering_gain * wspeed * wspeed;
+        float ff = -stress * stress_gain * 10.0f + dircommand * 10.0f * centering_gain * wspeed * wspeed;
         if (ff > 10000)
             ff = 10000;
         if (ff < -10000)

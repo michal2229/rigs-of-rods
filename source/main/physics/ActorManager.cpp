@@ -1109,7 +1109,7 @@ void ActorManager::UpdateActors(ActorPtr player_actor)
             player_actor->ar_toggle_ropes = false;
         }
 
-        player_actor->ForceFeedbackStep(m_physics_steps);
+        //player_actor->ForceFeedbackStep(m_physics_steps);
 
         if (player_actor->ar_state == ActorState::LOCAL_REPLAY)
         {
