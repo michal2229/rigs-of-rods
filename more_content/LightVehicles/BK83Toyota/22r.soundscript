@@ -1,0 +1,26 @@
+22r
+{
+ trigger_source engine
+ pitch_source engine_rpm
+ sound 750.0 22r_idle.wav
+ sound 800.0 22r_idle2.wav
+ sound 1800.0 22r_lo.wav
+ sound 2300.0 22r_lo2.wav
+ sound 2800.0 22r_lo3.wav
+ sound 3800.0 22r_med.wav
+ sound 4800.0 22r_hi.wav
+ sound 5300.0 22r_hi2.wav
+ sound 6100.0 22r_peak.wav
+ sound 7000.0 22r_peak2.wav
+ stop_sound unpitched 22r_stop.wav
+}
+
+22r_starter
+{
+ trigger_source starter
+ start_sound unpitched 22r_start_start.wav
+ sound unpitched 22r_start.wav
+ stop_sound unpitched 22r_start_stop.wav
+}
+
+
